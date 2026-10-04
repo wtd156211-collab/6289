@@ -1,0 +1,79 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --ink: #1f2329;
+  --muted: #6b7280;
+  --line: #e4e7eb;
+  --accent: #2563eb;
+  --zero-bg: #fef2f2;
+  --zero-line: #fca5a5;
+  --zero-ink: #b91c1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.6 -apple-system, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", sans-serif;
+}
+.page-head { padding: 20px 24px 4px; }
+.page-head h1 { margin: 0 0 4px; font-size: 20px; }
+.hint { margin: 0; color: var(--muted); font-size: 13px; }
+code { background: #eef0f3; border-radius: 3px; padding: 1px 5px; }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 16px 24px;
+}
+.metric {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.metric .label { color: var(--muted); font-size: 12px; }
+.metric .value { font-size: 18px; font-weight: 600; margin-top: 2px; }
+.metric .sub { color: var(--muted); font-size: 12px; margin-top: 2px;
+               overflow-wrap: anywhere; }
+.metric.slow .value { color: var(--zero-ink); }
+
+.queries { padding: 4px 24px 40px; display: flex; flex-direction: column; gap: 12px; }
+.query-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.query-card.zero {
+  background: var(--zero-bg);
+  border-color: var(--zero-line);
+}
+.query-head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.query-word { font-size: 16px; font-weight: 600; }
+.query-meta { color: var(--muted); font-size: 12px; }
+.zero-badge {
+  color: var(--zero-ink);
+  border: 1px solid var(--zero-line);
+  border-radius: 999px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+table.cands { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.cands th, table.cands td {
+  text-align: left;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+table.cands th { color: var(--muted); font-weight: 500; }
+table.cands td.word { font-weight: 600; white-space: normal; }
+td.parts { color: var(--muted); font-variant-numeric: tabular-nums; }
+td.score { font-variant-numeric: tabular-nums; font-weight: 600; }
+.rank { color: var(--muted); }
